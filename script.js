@@ -429,7 +429,7 @@ ${cardInfoString}
     aiResponse.textContent = 'เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาตรวจสอบ API Key และอินเทอร์เน็ต';
   } finally {
     askAiBtn.disabled = false;
-    askAiBtn.textContent = 'ขอคำทำนายจาก AI';
+    askAiBtn.textContent = 'ขอคำทำนายจากดวงดาว';
   }
 }
 
