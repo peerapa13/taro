@@ -38,34 +38,12 @@ const confirmQuestionBtn = document.getElementById('confirm-question-btn');
 const askAiBtn      = document.getElementById('ask-ai-btn');
 const aiResponse    = document.getElementById('ai-response');
 
-const settingsBtn   = document.getElementById('settings-btn');
-const settingsModal = document.getElementById('settings-modal');
-const closeSettingsBtn = document.getElementById('close-settings-btn');
-const saveSettingsBtn  = document.getElementById('save-settings-btn');
-const groqKeyInput     = document.getElementById('groq-key-input');
+// ใส่ Groq API Key ที่นี่ (ถ้าใช้วิธีฝังในโค้ด)
+const DEFAULT_GROQ_KEY = 'YOUR_GROQ_API_KEY_HERE';
 
 // Groq API
 const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
-
-// Manage API Key
-function getApiKey() {
-  return localStorage.getItem('tarot_groq_api_key') || '';
-}
-
-settingsBtn.addEventListener('click', () => {
-  groqKeyInput.value = getApiKey();
-  settingsModal.style.display = 'flex';
-});
-
-closeSettingsBtn.addEventListener('click', () => {
-  settingsModal.style.display = 'none';
-});
-
-saveSettingsBtn.addEventListener('click', () => {
-  localStorage.setItem('tarot_groq_api_key', groqKeyInput.value.trim());
-  settingsModal.style.display = 'none';
-});
 
 /* ============================================================
    STARFIELD
@@ -398,12 +376,7 @@ function showResults () {
    AI READING WITH GROQ (ฟรี — console.groq.com)
    ============================================================ */
 async function getAiReading() {
-  const apiKey = getApiKey();
-  if (!apiKey) {
-    aiResponse.textContent = 'กรุณาตั้งค่า API Key ก่อนขอคำทำนายครับ (คลิกที่ปุ่ม ⚙️ ตั้งค่าคีย์ มุมขวาบน)';
-    aiResponse.style.display = 'block';
-    return;
-  }
+  const apiKey = DEFAULT_GROQ_KEY;
 
   const question = questionInput.value.trim();
 

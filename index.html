@@ -10,22 +10,7 @@
 </head>
 <body>
 
-  <button id="settings-btn" class="settings-btn" aria-label="Settings">⚙️ ตั้งค่าคีย์</button>
 
-  <!-- Settings Modal -->
-  <div id="settings-modal" class="modal-overlay" style="display:none;">
-    <div class="modal-content glass">
-      <h3>ตั้งค่า Groq API Key</h3>
-      <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 1rem;">
-        กรุณาใส่ API Key ของคุณจาก Groq.com (คีย์จะถูกเก็บไว้ในเครื่องของคุณเท่านั้น ปลอดภัย 100%)
-      </p>
-      <input type="password" id="groq-key-input" placeholder="gsk_..." class="ai-textarea" style="margin-bottom: 1.5rem; text-align: left; padding: 0.8rem;">
-      <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-        <button id="close-settings-btn" class="btn-secondary">ยกเลิก</button>
-        <button id="save-settings-btn" class="btn-primary">บันทึก</button>
-      </div>
-    </div>
-  </div>
 
   <canvas id="starfield"></canvas>
   <div id="particles"></div>
