@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>ทำนายไพ่ทาโร – ดูดวงกับแม่หมอ</title>
-  <meta name="description" content="หยิบไพ่ทาโรแบบ 3D Interactive รับคำทำนายจากจักรวาลและดวงดาว">
+  <meta name="description" content="หยิบไพ่ทาโรแบบ 3D Interactive รับคำทำนายจากจักรวาลและ AI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
 
   <canvas id="starfield"></canvas>
   <div id="particles"></div>
@@ -74,13 +72,13 @@
       </div>
       <div id="result-content" class="result-content"></div>
 
-      <!-- ดวงดาว Reading Section -->
+      <!-- AI Reading Section -->
       <div class="ai-section" id="ai-section">
         <div class="ai-divider">
           <span>คำทำนายจากดวงดาว</span>
         </div>
 
-        <button id="ask-ai-btn" class="btn-ask-ai">ตีความหมายไพ่ด้วยดวงดาว</button>
+        <button id="ask-ai-btn" class="btn-ask-ai">ตีความหมายไพ่</button>
 
         <!-- AI Response -->
         <div id="ai-response" class="ai-response" style="display:none"></div>
@@ -88,8 +86,6 @@
 
       <button id="reset-btn" class="btn-primary">เริ่มการทำนายใหม่</button>
     </section>
-
-  </main>
 
   <script src="cards.js"></script>
   <script src="script.js"></script>
