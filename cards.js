@@ -1,0 +1,25 @@
+// Major Arcana card data – Rider-Waite deck (Public Domain)
+const TAROT_CARDS = [
+  { name: "The Fool",          emoji: "🃏", img: "assets/img/fool.jpg",          meaning: "การเริ่มต้นใหม่ที่ไร้ข้อจำกัด เตรียมพร้อมรับโอกาสใหม่ๆ ด้วยความเชื่อมั่น" },
+  { name: "The Magician",      emoji: "🎩", img: "assets/img/magician.jpg",      meaning: "พลังสร้างสรรค์และการจัดการทรัพยากร ใช้ทักษะของคุณให้เต็มที่" },
+  { name: "The High Priestess",emoji: "🌙", img: "assets/img/high_priestess.jpg",meaning: "ความรู้สึกลึกซึ้ง เข้าใจสัญชาตญาณและความลับที่ซ่อนอยู่" },
+  { name: "The Empress",       emoji: "👑", img: "assets/img/empress.jpg",       meaning: "ความอุดมสมบูรณ์ การบำรุงและความรักที่เอื้ออาทร" },
+  { name: "The Emperor",       emoji: "⚡", img: "assets/img/emperor.jpg",       meaning: "อำนาจ การควบคุมและการสร้างโครงสร้างที่แน่นหนา" },
+  { name: "The Hierophant",    emoji: "🏛️", img: "assets/img/hierophant.jpg",   meaning: "การเรียนรู้จากประเพณีและค่านิยมที่เป็นที่ยอมรับ" },
+  { name: "The Lovers",        emoji: "💞", img: "assets/img/lovers.jpg",        meaning: "ความสัมพันธ์และการตัดสินใจที่สำคัญในเรื่องหัวใจ" },
+  { name: "The Chariot",       emoji: "🏆", img: "assets/img/chariot.jpg",       meaning: "ความมุ่งมั่น ชัยชนะผ่านความมานะและการควบคุมอารมณ์" },
+  { name: "Strength",          emoji: "🦁", img: "assets/img/strength.jpg",      meaning: "ความแข็งแกร่งภายใน การควบคุมอารมณ์ด้วยเมตตา" },
+  { name: "The Hermit",        emoji: "🕯️", img: "assets/img/hermit.jpg",       meaning: "การแสวงหาปัญญาในความเงียบ การไตร่ตรอง" },
+  { name: "Wheel of Fortune",  emoji: "☯️", img: "assets/img/wheel.jpg",        meaning: "วงจรแห่งชีวิต การเปลี่ยนแปลงที่ไม่มีที่สิ้นสุด" },
+  { name: "Justice",           emoji: "⚖️", img: "assets/img/justice.jpg",      meaning: "ความยุติธรรม ความสมดุลระหว่างผลของการกระทำ" },
+  { name: "The Hanged Man",    emoji: "🌀", img: "assets/img/hanged_man.jpg",    meaning: "การยอมรับการเสียสละเพื่อมุมมองใหม่" },
+  { name: "Death",             emoji: "🌑", img: "assets/img/death.jpg",         meaning: "การสิ้นสุดของช่วงหนึ่งเพื่อการเริ่มต้นใหม่" },
+  { name: "Temperance",        emoji: "🌊", img: "assets/img/temperance.jpg",    meaning: "สมดุล ความสงบและการผสานที่ลงตัว" },
+  { name: "The Devil",         emoji: "🔥", img: "assets/img/devil.jpg",         meaning: "การผูกติดกับความกลัวหรือความพึ่งพา" },
+  { name: "The Tower",         emoji: "⚡", img: "assets/img/tower.jpg",         meaning: "การเปลี่ยนแปลงกระแทกที่ทำลายความมั่นคงเดิม" },
+  { name: "The Star",          emoji: "⭐", img: "assets/img/star.jpg",          meaning: "ความหวัง การบำบัดและการฟื้นฟูจิตวิญญาณ" },
+  { name: "The Moon",          emoji: "🌕", img: "assets/img/moon.jpg",          meaning: "ความลับ ความฝันและอารมณ์ที่ซ่อนอยู่" },
+  { name: "The Sun",           emoji: "☀️", img: "assets/img/sun.jpg",          meaning: "ความสุข ความสำเร็จและพลังใสสว่าง" },
+  { name: "Judgement",         emoji: "🔔", img: "assets/img/judgement.jpg",     meaning: "การประเมินผล การกลับมาของโอกาส" },
+  { name: "The World",         emoji: "🌍", img: "assets/img/world.jpg",         meaning: "การบรรลุเป้าหมาย ความสำเร็จครบวงจร" }
+];

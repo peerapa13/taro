@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ทำนายไพ่ทาโร – ดูดวงกับแม่หมอ</title>
+  <meta name="description" content="หยิบไพ่ทาโรแบบ 3D Interactive รับคำทำนายจากจักรวาลและ AI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+  <div id="particles"></div>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="orb-wrap">
+        <div class="orb"></div>
+      </div>
+      <h1>ทำนายไพ่ทาโร</h1>
+      <p class="subtitle">หยิบไพ่จากจักรวาล · แตะไพ่เพื่อเปิดเผยโชคชะตา</p>
+    </header>
+
+    <!-- Mode selector -->
+    <nav class="mode-bar glass" aria-label="เลือกจำนวนไพ่">
+      <button class="mode-btn active" data-mode="1" id="mode-btn-1">1 ใบ</button>
+      <button class="mode-btn" data-mode="3" id="mode-btn-3">3 ใบ — อดีต · ปัจจุบัน · อนาคต</button>
+      <button class="mode-btn" data-mode="5" id="mode-btn-5">5 ใบ — Celtic Cross</button>
+    </nav>
+
+    <!-- Shuffle stage -->
+    <section class="shuffle-stage" id="shuffle-stage" aria-label="สำรับไพ่">
+      <div class="deck-wrapper idle" id="deck-wrapper" role="button" aria-label="คลิกเพื่อหยิบไพ่" tabindex="0">
+        <div class="deck-shadow"></div>
+        <div class="deck-shadow"></div>
+        <div class="deck-shadow"></div>
+        <div class="deck-top-card">
+          <img src="assets/img/back.jpg" alt="หลังไพ่">
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <div class="draw-prompt">
+      <p id="draw-hint">คลิกที่สำรับเพื่อหยิบไพ่</p>
+      <div class="status-bar" id="status-bar"></div>
+      <div class="action-buttons">
+        <button id="shuffle-btn" class="btn-secondary">สับไพ่</button>
+        <button id="reveal-all-btn" class="btn-reveal" style="display:none;">เปิดไพ่ทั้งหมด</button>
+      </div>
+    </div>
+
+    <!-- Pre-reveal Question Box -->
+    <div id="pre-reveal-question" class="glass" style="display:none; max-width: 600px; margin: 1rem auto 2rem; animation: fadeUp 0.5s ease; text-align: left;">
+      <div class="question-row" style="margin-bottom:0;">
+        <label class="ai-label" for="question-input" style="text-align: center; font-size: 1rem; margin-bottom: 0.8rem;">ตั้งจิตอธิษฐานและพิมพ์คำถามของคุณ <span class="optional">(ไม่จำเป็น)</span></label>
+        <textarea id="question-input" class="ai-textarea" rows="2" placeholder="เช่น ความรักจะเป็นอย่างไร? หรือการงานจะดีขึ้นไหม?"></textarea>
+        <button id="confirm-question-btn" class="btn-primary" style="margin-top: 1rem; width: 100%;">เริ่มหยิบไพ่</button>
+      </div>
+    </div>
+
+    <!-- Card spread -->
+    <section id="spread-area" class="spread-area" aria-label="ไพ่ที่หยิบ"></section>
+
+    <!-- Result panel -->
+    <section id="result-panel" class="result-panel glass" style="display:none" aria-live="polite">
+      <div class="result-header">
+        <h2>คำทำนายของคุณ</h2>
+      </div>
+      <div id="result-content" class="result-content"></div>
+
+      <!-- AI Reading Section -->
+      <div class="ai-section" id="ai-section">
+        <div class="ai-divider">
+          <span>คำทำนายจาก AI</span>
+        </div>
+
+        <button id="ask-ai-btn" class="btn-ask-ai">ตีความหมายไพ่ด้วย AI</button>
+
+        <!-- AI Response -->
+        <div id="ai-response" class="ai-response" style="display:none"></div>
+      </div>
+
+      <button id="reset-btn" class="btn-primary">เริ่มการทำนายใหม่</button>
+    </section>
+
+  <script src="cards.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
