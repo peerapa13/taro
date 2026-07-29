@@ -39,7 +39,7 @@ const askAiBtn      = document.getElementById('ask-ai-btn');
 const aiResponse    = document.getElementById('ai-response');
 
 // ใส่ Groq API Key ที่นี่
-const DEFAULT_GROQ_KEY = 'YOUR_GROQ_API_KEY_HERE';
+const DEFAULT_GROQ_KEY = '{{YOUR_GROQ_API_KEY_HERE}}';
 
 // Groq API
 const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
