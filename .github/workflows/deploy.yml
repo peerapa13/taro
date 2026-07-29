@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages with Secret
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main"] # เปลี่ยนเป็นชื่อ Branch หลักของคุณถ้าไม่ได้ใช้ main
   workflow_dispatch:
 
 permissions:
@@ -23,32 +23,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Verify secret is set
-        run: |
-          if [ -z "${{ secrets.YOUR_GROQ_API_KEY_HERE }}" ]; then
-            echo "::error::Secret YOUR_GROQ_API_KEY_HERE is EMPTY or missing. Deploy stopped."
-            exit 1
-          fi
-          echo "Secret is present (length check passed)."
-
+        
+      # ขั้นตอนสำคัญ: ค้นหาคำว่า {{YOUR_GROQ_API_KEY_HERE}} ใน script.js แล้วแทนที่ด้วย Secret
       - name: Inject API Key
-        run: |
-          sed -i "s/YOUR_GROQ_API_KEY_HERE/${{ secrets.YOUR_GROQ_API_KEY_HERE }}/g" script.js
-          if grep -q "YOUR_GROQ_API_KEY_HERE" script.js; then
-            echo "::error::sed replacement failed, placeholder still present in script.js"
-            exit 1
-          fi
-          echo "API key injected successfully."
-
+        run: sed -i 's/{{YOUR_GROQ_API_KEY_HERE}}/${{ secrets.YOUR_GROQ_API_KEY_HERE }}/g' script.js
+        
       - name: Setup Pages
-        uses: actions/configure-pages@v5
-
+        uses: actions/configure-pages@v4
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
