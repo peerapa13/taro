@@ -377,6 +377,11 @@ function showResults () {
    ============================================================ */
 async function getAiReading() {
   const apiKey = DEFAULT_GROQ_KEY;
+  if (apiKey === 'YOUR_GROQ_API_KEY_HERE' || !apiKey) {
+    aiResponse.style.display = 'block';
+    aiResponse.textContent = 'ยังไม่ได้ตั้งค่า Secret (YOUR_GROQ_API_KEY_HERE) บน GitHub หรือระบบ Deploy ยังรันไม่เสร็จครับ โปรดตรวจสอบ Settings > Secrets อีกครั้ง';
+    return;
+  }
 
   const question = questionInput.value.trim();
 
@@ -429,7 +434,7 @@ ${cardInfoString}
     aiResponse.textContent = 'เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาตรวจสอบ API Key และอินเทอร์เน็ต';
   } finally {
     askAiBtn.disabled = false;
-    askAiBtn.textContent = 'ขอคำทำนายจาก AI';
+    askAiBtn.textContent = 'ขอคำทำนายจากดวงดาว';
   }
 }
 
