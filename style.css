@@ -12,6 +12,7 @@ body {
   color: #e0d8ff;
   overflow-x: hidden;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* ---------- Starfield ---------- */
@@ -49,7 +50,7 @@ body {
   z-index: 1;
   max-width: 980px;
   margin: 0 auto;
-  padding: 2rem 1rem 5rem;
+  padding: 2rem max(1rem, env(safe-area-inset-left)) 5rem max(1rem, env(safe-area-inset-right));
   text-align: center;
 }
 
@@ -143,6 +144,7 @@ h1 {
   font-size: .83rem;
   font-family: 'Inter', sans-serif;
   transition: all .22s ease;
+  min-height: 2.5rem;
 }
 .mode-btn:hover, .mode-btn.active {
   background: linear-gradient(135deg, #7c3aed, #ec4899);
@@ -690,14 +692,105 @@ h1 {
    RESPONSIVE
    ============================================== */
 @media (max-width: 600px) {
-  .tarot-card, .card-slot { width: 100px; height: 165px; }
-  .shuffle-ghost { width: 100px; height: 165px; margin-left: -50px; }
+  .container {
+    padding-top: 1.25rem;
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+  }
+
+  .hero { margin-bottom: 1.25rem; }
+  .orb-wrap { margin-bottom: 1rem; }
+  .orb { width: 72px; height: 72px; }
+  .subtitle {
+    padding: 0 .5rem;
+    font-size: .78rem;
+    line-height: 1.5;
+  }
+
+  .glass {
+    border-radius: 16px;
+    padding: 1rem;
+  }
+
+  .mode-bar {
+    width: 100%;
+    gap: .45rem;
+    margin-bottom: 1.5rem;
+  }
+  .mode-btn {
+    flex: 1 1 auto;
+    max-width: 100%;
+    font-size: .72rem;
+    line-height: 1.25;
+    padding: .45rem .65rem;
+  }
+
+  .tarot-card, .card-slot {
+    width: clamp(82px, 27vw, 100px);
+    height: clamp(134px, 44vw, 165px);
+  }
+  .shuffle-ghost {
+    width: clamp(82px, 27vw, 100px);
+    height: clamp(134px, 44vw, 165px);
+    margin-left: clamp(-50px, -13.5vw, -41px);
+  }
   .deck-wrapper, .deck-shadow { width: 110px; height: 180px; }
   .deck-top-card { border-radius: 12px; }
-  .spread-area { gap: .8rem; }
+  .spread-area {
+    gap: .8rem .55rem;
+    min-height: 220px;
+    margin-bottom: 1.8rem;
+  }
+  .card-position-label {
+    bottom: -1.45rem;
+    font-size: .6rem;
+  }
+  .card-label { font-size: .6rem; }
+  .draw-prompt { margin-bottom: 1.5rem; }
+  .action-buttons {
+    width: 100%;
+    gap: .6rem;
+  }
+  .action-buttons button { flex: 1; }
+
+  #pre-reveal-question {
+    width: 100%;
+    margin: .75rem auto 1.5rem !important;
+  }
+  .ai-label { line-height: 1.5; }
+  .ai-textarea { font-size: .88rem; }
+
+  .result-panel { width: 100%; }
+  .result-item {
+    gap: .7rem;
+    padding: .8rem;
+  }
   .result-item img, .result-item .img-placeholder { width: 56px; height: 90px; }
-  .mode-btn { font-size: .74rem; padding: .44rem .88rem; }
-  .shuffle-stage { height: 260px; }
+  .result-item p {
+    font-size: .82rem;
+    line-height: 1.55;
+  }
+  .shuffle-stage { height: 230px; }
+  .btn-primary,
+  .btn-ask-ai { min-height: 2.8rem; }
 }
 
+@media (max-width: 360px) {
+  .container { padding-left: .7rem; padding-right: .7rem; }
+  .mode-btn { font-size: .66rem; padding-left: .45rem; padding-right: .45rem; }
+  .spread-area { gap: .8rem .35rem; }
+  .result-item { align-items: center; }
+  .result-item h3 { font-size: .9rem; }
+}
+
+@media (hover: none) {
+  .mode-btn:hover,
+  .deck-wrapper:hover,
+  .tarot-card:hover .card-back-face::after,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-reveal:hover,
+  .btn-ask-ai:hover {
+    transform: none;
+  }
+}
 
